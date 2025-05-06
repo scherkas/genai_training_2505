@@ -6,11 +6,11 @@ logger = get_logger(__name__)
 
 import os
 if os.getenv('USER', "None") == 'appuser': # streamlit
-    ht_token = st.secrets['HF_TOKEN']
+    hf_token = st.secrets['HF_TOKEN']
     os.environ["HUGGINGFACEHUB_API_TOKEN"] = hf_token
 else:
     # ALSO ADD HERE YOUR PROXY VARS
-    os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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" # os.environ["MY_HF_API_TOKEN"]
+    os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.environ["MY_HF_API_TOKEN"]
 
 st.title("my gen AI app")
 repo_id = "microsoft/Phi-3-mini-4k-instruct"
